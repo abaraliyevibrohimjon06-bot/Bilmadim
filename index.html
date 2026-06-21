@@ -3,154 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ibrohimjon | Links</title>
+<title>Ibrohimjon</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:
-linear-gradient(
-135deg,
-#050505,
-#0f172a,
-#111827,
-#1e293b
-);
+padding:20px;
+background:#050816;
 overflow:hidden;
 }
 
+/* Kosmik fon */
 body::before{
 content:"";
-position:absolute;
-width:350px;
-height:350px;
-background:#3b82f6;
+position:fixed;
+width:700px;
+height:700px;
+background:#2563eb;
 border-radius:50%;
-top:-100px;
-left:-100px;
-filter:blur(120px);
-opacity:.25;
+left:-250px;
+top:-250px;
+filter:blur(180px);
+opacity:.35;
 }
 
 body::after{
 content:"";
-position:absolute;
-width:350px;
-height:350px;
-background:#8b5cf6;
+position:fixed;
+width:700px;
+height:700px;
+background:#9333ea;
 border-radius:50%;
-bottom:-100px;
-right:-100px;
-filter:blur(120px);
-opacity:.25;
+right:-250px;
+bottom:-250px;
+filter:blur(180px);
+opacity:.35;
 }
 
+/* Asosiy karta */
 .card{
-width:90%;
-max-width:430px;
-padding:30px;
-border-radius:32px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(25px);
--webkit-backdrop-filter:blur(25px);
+width:100%;
+max-width:520px;
+padding:28px;
+border-radius:35px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(30px);
 border:1px solid rgba(255,255,255,.08);
-box-shadow:0 20px 50px rgba(0,0,0,.4);
-text-align:center;
-color:white;
+box-shadow:0 25px 60px rgba(0,0,0,.5);
 }
 
-.avatar{
-width:100px;
-height:100px;
+/* Premium I logo */
+.logo{
+width:140px;
+height:140px;
 margin:auto;
 border-radius:50%;
-background:rgba(255,255,255,.1);
 display:flex;
-justify-content:center;
 align-items:center;
-font-size:42px;
+justify-content:center;
+font-size:75px;
+font-weight:800;
+color:white;
+
+background:
+linear-gradient(
+135deg,
+#00d4ff,
+#3b82f6,
+#8b5cf6,
+#ff00aa
+);
+
+box-shadow:
+0 0 30px #3b82f6,
+0 0 60px #8b5cf6;
 }
 
 h1{
-margin-top:15px;
-font-size:28px;
+text-align:center;
+font-size:42px;
+margin-top:18px;
+color:white;
 }
 
-.desc{
-margin-top:10px;
+.subtitle{
+text-align:center;
+color:#9ca3af;
+margin-top:8px;
+font-size:16px;
+}
+
+.status{
+margin:18px auto;
+width:max-content;
+padding:10px 18px;
+border-radius:999px;
+background:rgba(34,197,94,.15);
+color:#4ade80;
+font-size:14px;
+}
+
+.about{
+margin-top:20px;
+padding:18px;
+border-radius:20px;
+background:rgba(255,255,255,.05);
 color:#d1d5db;
-line-height:1.5;
-font-size:15px;
+line-height:1.6;
 }
 
+/* Tugmalar */
 .link{
-display:block;
+display:flex;
+justify-content:space-between;
+align-items:center;
 text-decoration:none;
 color:white;
-margin-top:15px;
-padding:15px;
-border-radius:18px;
-background:rgba(255,255,255,.08);
-transition:.3s;
+padding:22px;
+margin-top:18px;
+border-radius:24px;
+font-size:22px;
+font-weight:600;
+transition:.25s;
 }
 
 .link:hover{
 transform:translateY(-3px);
-background:rgba(255,255,255,.14);
+}
+
+.telegram{
+background:linear-gradient(90deg,#0ea5e9,#2563eb);
+}
+
+.instagram{
+background:linear-gradient(90deg,#9333ea,#ec4899,#f97316);
+}
+
+.whatsapp{
+background:linear-gradient(90deg,#16a34a,#22c55e);
+}
+
+.line{
+background:linear-gradient(90deg,#22c55e,#65a30d);
+}
+
+.arrow{
+font-size:28px;
 }
 
 .footer{
-margin-top:20px;
-font-size:12px;
-color:#9ca3af;
+margin-top:25px;
+text-align:center;
+color:#6b7280;
+font-size:13px;
 }
 </style>
 </head>
+
 <body>
 
 <div class="card">
 
-<div class="avatar">👋</div>
+<div class="logo">I</div>
 
 <h1>Ibrohimjon</h1>
 
-<p class="desc">
-Assalomu alaykum.<br>
-Xush kelibsiz! Quyidagi tugmalar orqali men bilan bog'lanishingiz mumkin.
-</p>
+<div class="subtitle">
+Welcome to my profile
+</div>
 
-<a class="link"
-href="https://t.me/Ibrohimjon_0o1"
-target="_blank">
-📩 Telegram
+<div class="status">
+🟢 Online
+</div>
+
+<div class="about">
+Assalomu alaykum 👋<br>
+Mening rasmiy sahifalarim va messenjerlarim.
+Quyidagi platformalardan birini tanlang.
+</div>
+
+<a class="link telegram"
+href="https://t.me/Ibrohimjon_0o1">
+<span>📩 Telegram</span>
+<span class="arrow">›</span>
 </a>
 
-<a class="link"
-href="https://www.instagram.com/ibrohimjon_0o6"
-target="_blank">
-📸 Instagram
+<a class="link instagram"
+href="https://www.instagram.com/ibrohimjon_0o6">
+<span>📸 Instagram</span>
+<span class="arrow">›</span>
 </a>
 
-<a class="link"
-href="https://wa.me/817083181403"
-target="_blank">
-💬 WhatsApp
+<a class="link whatsapp"
+href="https://wa.me/817083181403">
+<span>💬 WhatsApp</span>
+<span class="arrow">›</span>
 </a>
 
-<a class="link"
-href="https://line.me/ti/p/Jhd_fDMgRx"
-target="_blank">
-💚 LINE
+<a class="link line"
+href="https://line.me/ti/p/Jhd_fDMgRx">
+<span>💚 LINE</span>
+<span class="arrow">›</span>
 </a>
 
 <div class="footer">
