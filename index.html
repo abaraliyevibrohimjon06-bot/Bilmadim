@@ -3,126 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iOS Style Website</title>
+<title>Ibrohimjon | Links</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:
-    linear-gradient(135deg,#00c6ff,#0072ff,#7f5af0);
-    overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(
+135deg,
+#050505,
+#0f172a,
+#111827,
+#1e293b
+);
+overflow:hidden;
 }
 
 body::before{
-    content:"";
-    position:absolute;
-    width:400px;
-    height:400px;
-    background:rgba(255,255,255,.2);
-    border-radius:50%;
-    top:-100px;
-    left:-100px;
-    filter:blur(80px);
+content:"";
+position:absolute;
+width:350px;
+height:350px;
+background:#3b82f6;
+border-radius:50%;
+top:-100px;
+left:-100px;
+filter:blur(120px);
+opacity:.25;
 }
 
 body::after{
-    content:"";
-    position:absolute;
-    width:400px;
-    height:400px;
-    background:rgba(255,255,255,.15);
-    border-radius:50%;
-    bottom:-100px;
-    right:-100px;
-    filter:blur(80px);
+content:"";
+position:absolute;
+width:350px;
+height:350px;
+background:#8b5cf6;
+border-radius:50%;
+bottom:-100px;
+right:-100px;
+filter:blur(120px);
+opacity:.25;
 }
 
 .card{
-    width:90%;
-    max-width:420px;
-    padding:30px;
-    border-radius:30px;
-    background:rgba(255,255,255,.15);
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
-    border:1px solid rgba(255,255,255,.2);
-    box-shadow:0 8px 32px rgba(0,0,0,.2);
-    color:white;
-    text-align:center;
+width:90%;
+max-width:430px;
+padding:30px;
+border-radius:32px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 20px 50px rgba(0,0,0,.4);
+text-align:center;
+color:white;
 }
 
 .avatar{
-    width:100px;
-    height:100px;
-    margin:auto;
-    border-radius:50%;
-    background:rgba(255,255,255,.2);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:40px;
+width:100px;
+height:100px;
+margin:auto;
+border-radius:50%;
+background:rgba(255,255,255,.1);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:42px;
 }
 
 h1{
-    margin-top:15px;
+margin-top:15px;
+font-size:28px;
 }
 
-p{
-    margin-top:10px;
-    opacity:.9;
+.desc{
+margin-top:10px;
+color:#d1d5db;
+line-height:1.5;
+font-size:15px;
 }
 
-.btn{
-    margin-top:20px;
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:16px;
-    background:rgba(255,255,255,.2);
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:.3s;
+.link{
+display:block;
+text-decoration:none;
+color:white;
+margin-top:15px;
+padding:15px;
+border-radius:18px;
+background:rgba(255,255,255,.08);
+transition:.3s;
 }
 
-.btn:hover{
-    background:rgba(255,255,255,.3);
-    transform:scale(1.03);
+.link:hover{
+transform:translateY(-3px);
+background:rgba(255,255,255,.14);
+}
+
+.footer{
+margin-top:20px;
+font-size:12px;
+color:#9ca3af;
 }
 </style>
 </head>
 <body>
 
 <div class="card">
-    <div class="avatar">🍎</div>
 
-    <h1>Salom!</h1>
+<div class="avatar">👋</div>
 
-    <p>
-        GitHub Pages uchun tayyor iOS uslubidagi
-        shaffof sayt.
-    </p>
+<h1>Ibrohimjon</h1>
 
-    <button class="btn" onclick="showMessage()">
-        Bosing
-    </button>
+<p class="desc">
+Assalomu alaykum.<br>
+Xush kelibsiz! Quyidagi tugmalar orqali men bilan bog'lanishingiz mumkin.
+</p>
+
+<a class="link"
+href="https://t.me/Ibrohimjon_0o1"
+target="_blank">
+📩 Telegram
+</a>
+
+<a class="link"
+href="https://www.instagram.com/ibrohimjon_0o6"
+target="_blank">
+📸 Instagram
+</a>
+
+<a class="link"
+href="https://wa.me/817083181403"
+target="_blank">
+💬 WhatsApp
+</a>
+
+<a class="link"
+href="https://line.me/ti/p/Jhd_fDMgRx"
+target="_blank">
+💚 LINE
+</a>
+
+<div class="footer">
+Made with ❤️ in Japan 🇯🇵
 </div>
 
-<script>
-function showMessage(){
-    alert("iOS uslubidagi sayt ishlayapti 🚀");
-}
-</script>
+</div>
 
 </body>
 </html>
