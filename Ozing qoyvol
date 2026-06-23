@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ibrohimjon</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  background:#040311;
+  overflow-x:hidden;
+}
+
+/* ---- Kosmik fon: yulduzlar + sayyoralar ---- */
+.stars{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, rgba(255,255,255,.9), transparent),
+    radial-gradient(1px 1px at 90px 120px, rgba(255,255,255,.7), transparent),
+    radial-gradient(2px 2px at 160px 60px, rgba(255,255,255,.8), transparent),
+    radial-gradient(1px 1px at 230px 200px, rgba(255,255,255,.6), transparent),
+    radial-gradient(1.5px 1.5px at 300px 100px, rgba(255,255,255,.9), transparent),
+    radial-gradient(1px 1px at 40px 250px, rgba(255,255,255,.5), transparent),
+    radial-gradient(2px 2px at 340px 320px, rgba(255,255,255,.7), transparent),
+    radial-gradient(1px 1px at 120px 350px, rgba(255,255,255,.6), transparent);
+  background-repeat:repeat;
+  background-size:380px 400px;
+  animation:twinkle 4s ease-in-out infinite alternate;
+}
+@keyframes twinkle{
+  from{ opacity:.6; }
+  to{ opacity:1; }
+}
+
+.planet{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(2px);
+  z-index:0;
+}
+.planet.blue{
+  width:260px; height:260px;
+  left:-90px; top:8%;
+  background:radial-gradient(circle at 35% 30%, #4f8cff, #1a2f8f 60%, transparent 75%);
+  opacity:.55;
+  filter:blur(8px);
+}
+.planet.purple{
+  width:320px; height:320px;
+  right:-120px; bottom:5%;
+  background:radial-gradient(circle at 40% 35%, #b85cff, #5b1f9e 60%, transparent 75%);
+  opacity:.5;
+  filter:blur(10px);
+}
+.ring{
+  position:fixed;
+  width:420px; height:420px;
+  border:1px solid rgba(168,130,255,.15);
+  border-radius:50%;
+  right:-160px;
+  bottom:-40px;
+  transform:rotate(-20deg);
+  z-index:0;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .stars{ animation:none; }
+}
+
+/* ---- Karta ---- */
+.card{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:420px;
+  padding:22px 22px 18px;
+  border-radius:32px;
+  background:rgba(18,16,35,.55);
+  backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
+}
+
+.top-status{
+  position:absolute;
+  top:22px;
+  right:22px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  font-size:13px;
+  color:#e8e6f3;
+}
+.top-status .dot{
+  width:7px; height:7px;
+  border-radius:50%;
+  background:#34d399;
+  box-shadow:0 0 8px #34d399;
+}
+
+/* ---- Premium I logo ---- */
+.logo-wrap{
+  width:88px;
+  height:88px;
+  margin:0 auto;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.logo-ring{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  padding:2.5px;
+  background:conic-gradient(from 220deg, #00d4ff, #3b82f6, #8b5cf6, #ff2fb0, #00d4ff);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  animation:spin 7s linear infinite;
+  filter:drop-shadow(0 0 14px rgba(139,92,246,.55));
+}
+@keyframes spin{
+  to{ transform:rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce){
+  .logo-ring{ animation:none; }
+}
+.logo-core{
+  position:relative;
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, #161229, #06040f 72%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:inset 0 0 22px rgba(0,0,0,.6);
+}
+.logo-core span{
+  font-size:40px;
+  font-weight:800;
+  font-style:italic;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(165deg, #7ee8ff 0%, #6ea8ff 30%, #b07bff 60%, #ff5fc4 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 0 16px rgba(150,120,255,.75));
+  letter-spacing:-2px;
+}
+
+h1{
+  text-align:center;
+  font-size:24px;
+  font-weight:700;
+  margin-top:10px;
+  color:#fff;
+  letter-spacing:-.3px;
+}
+
+.tagline{
+  text-align:center;
+  margin-top:2px;
+  font-size:13px;
+  font-weight:700;
+  background:linear-gradient(90deg,#8fc7ff,#b9a6ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.tagline .spark{ -webkit-text-fill-color:#c9b6ff; }
+
+/* ---- About quote ---- */
+.about{
+  position:relative;
+  margin-top:12px;
+  padding:10px 16px 10px 22px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  color:#e4e2f0;
+  font-size:12.5px;
+  font-weight:500;
+  line-height:1.4;
+}
+.about .quote{
+  position:absolute;
+  left:7px;
+  top:7px;
+  font-size:18px;
+  font-weight:800;
+  color:#8b9bff;
+  font-family:Georgia, serif;
+}
+
+/* ---- Links ---- */
+.links{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.link{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+  padding:12px 8px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.1);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.link:hover{
+  transform:translateY(-3px);
+}
+.link:focus-visible{
+  outline:2px solid #fff;
+  outline-offset:3px;
+}
+
+.text{ text-align:center; }
+.name{
+  color:#fff;
+  font-size:13.5px;
+  font-weight:600;
+}
+.handle{
+  color:rgba(255,255,255,.88);
+  font-size:10.5px;
+  font-weight:500;
+  margin-top:0;
+  word-break:break-word;
+}
+
+.icon{
+  width:60px;
+  height:60px;
+  min-width:60px;
+  border-radius:17px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.4);
+  overflow:hidden;
+  background:linear-gradient(160deg,#2b2b2e,#0c0c0d);
+}
+.icon svg{ display:block; }
+
+.telegram{ background:rgba(41,169,235,.12); border-color:rgba(41,169,235,.3); }
+.instagram{ background:rgba(214,51,108,.12); border-color:rgba(214,51,108,.3); }
+.whatsapp{ background:rgba(37,211,102,.12); border-color:rgba(37,211,102,.3); }
+.line{ background:rgba(6,199,85,.12); border-color:rgba(6,199,85,.3); }
+
+/* ---- Footer ---- */
+.footer{
+  margin-top:10px;
+  text-align:center;
+}
+.heart{
+  font-size:14px;
+  margin-bottom:3px;
+  filter:drop-shadow(0 0 8px rgba(168,130,255,.6));
+}
+.thanks{
+  color:#e8e6f3;
+  font-size:12px;
+  font-weight:500;
+  margin-bottom:2px;
+}
+.made{
+  color:#a5a2bc;
+  font-size:11px;
+  font-weight:500;
+}
+.chev{ display:none; }
+@keyframes bob{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(5px); }
+}
+@media (prefers-reduced-motion: reduce){
+  .chev{ animation:none; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="planet blue"></div>
+<div class="planet purple"></div>
+<div class="ring"></div>
+
+<div class="card">
+
+  <div class="top-status"><span class="dot"></span>Online</div>
+
+  <div class="logo-wrap">
+    <div class="logo-ring"></div>
+    <div class="logo-core"><span>I</span></div>
+  </div>
+
+  <h1>Ibrohimjon</h1>
+  <div class="tagline">Stay Connected <span class="spark">✦</span></div>
+
+  <div class="about">
+    <span class="quote">&ldquo;</span>
+    Assalomu alaykum! 👋 Qulay platformani tanlang.
+  </div>
+
+  <div class="links">
+
+    <a class="link telegram" href="https://t.me/Ibrohimjon_0o1" rel="noopener">
+      <span class="icon">
+        <svg width="42" height="42" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+          <path d="M53 118l125-48c6-2 11 1 9 10l-21 100c-2 8-7 10-14 6l-39-29-19 18c-2 2-4 4-8 4l3-40 73-66c3-3-1-4-5-2L80 142l-39-12c-8-3-8-9 2-12z" fill="#3aa6f0"/>
+        </svg>
+      </span>
+      <span class="text">
+        <div class="name">Telegram</div>
+        <div class="handle">@Ibrohimjon_0o1</div>
+      </span>
+    </a>
+
+    <a class="link instagram" href="https://www.instagram.com/ibrohimjon_0o6" rel="noopener">
+      <span class="icon">
+        <svg width="42" height="42" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="igGrad" x1="0" y1="240" x2="240" y2="0">
+              <stop offset="0" stop-color="#cfcfd6"/>
+              <stop offset=".5" stop-color="#fdfdfd"/>
+              <stop offset="1" stop-color="#b8b8c0"/>
+            </linearGradient>
+          </defs>
+          <rect x="36" y="36" width="168" height="168" rx="46" fill="none" stroke="url(#igGrad)" stroke-width="15"/>
+          <circle cx="120" cy="120" r="44" fill="none" stroke="url(#igGrad)" stroke-width="15"/>
+          <circle cx="180" cy="60" r="11" fill="url(#igGrad)"/>
+        </svg>
+      </span>
+      <span class="text">
+        <div class="name">Instagram</div>
+        <div class="handle">@ibrohimjon_0o6</div>
+      </span>
+    </a>
+
+    <a class="link whatsapp" href="https://wa.me/817083181403" rel="noopener">
+      <span class="icon">
+        <svg width="42" height="42" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill="none" stroke="#3ddc73" stroke-width="1.3" d="M12 2C6.5 2 2 6.4 2 11.8c0 1.97.59 3.8 1.6 5.34L2 22l5-1.55a10.1 10.1 0 0 0 5 1.3c5.5 0 10-4.4 10-9.95C22 6.4 17.5 2 12 2Z"/>
+          <path fill="none" stroke="#3ddc73" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" d="M17.47 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.68-2.08-.18-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.68-1.63-.93-2.24-.25-.6-.5-.5-.68-.51h-.58c-.2 0-.53.07-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.55.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.34Z"/>
+        </svg>
+      </span>
+      <span class="text">
+        <div class="name">WhatsApp</div>
+        <div class="handle">+81 70-8318-1403</div>
+      </span>
+    </a>
+
+    <a class="link line" href="https://line.me/ti/p/Jhd_fDMgRx" rel="noopener">
+      <span class="icon">
+        <svg width="42" height="42" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="200" height="200" rx="52" fill="#3ddc73"/>
+          <text x="120" y="135" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="800" fill="#0c0c0d">LINE</text>
+        </svg>
+      </span>
+      <span class="text">
+        <div class="name">LINE</div>
+        <div class="handle">@Jhd_fDMgRx</div>
+      </span>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    <div class="heart">💜</div>
+    <div class="thanks">Thanks for visiting! 😊</div>
+    <div class="made">Made with ❤️ in Japan 🇯🇵</div>
+    <div class="chev">⌄</div>
+  </div>
+
+</div>
+
+</body>
+</html>
